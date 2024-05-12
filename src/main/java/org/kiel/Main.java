@@ -22,20 +22,26 @@ public class Main {
 
         String  password = "great";
 
-        String query = "SELECT * FROM showss";
+//        String query = "SELECT * FROM showss";
+        String sql2 = "INSERT INTO showss VALUES(6, 'play as much '), (7, 'Killing me softly')";
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection(url, user, password);
         Statement st = con.createStatement();
         System.out.println("Connection establised");
-        ResultSet resultSql = st.executeQuery(query);
+//        ResultSet resultSql = st.executeQuery(query); // prefered for select query
+
+        boolean result = st.execute(sql2);
+//        if(result){
+//
+//        }
 //        boolean next = resultSql.next();
 //        String resultST = resultSql.getString("information");
 //        System.out.println(resultST);
-
-        while (resultSql.next()){
-            System.out.println("ID is:" + resultSql.getInt(1));
-            System.out.println("Information is :"+ resultSql.getString(2));
-        }
+//
+//        while (resultSql.next()){
+//            System.out.println("ID is:" + resultSql.getInt(1));
+//            System.out.println("Information is :"+ resultSql.getString(2));
+//        }
 //        System.out.println(resultST);
 //        if(resultST){
 //            System.out.println(resultSql.next());
